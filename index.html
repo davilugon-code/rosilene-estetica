@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#F7F3EC">
+<title>Rosilene | Estética & Saúde</title>
+<meta name="description" content="Rosilene – Estética Facial e Corporal. Promovo saúde e bem-estar. Harmonização, Laser CO2, Lavieen, Endolaser, Criolipólise, Depilação a Laser, Ozonioterapia e mais.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#F7F3EC;          /* creme */
+    --bg-2:#EFE8DC;        /* areia */
+    --white:#FFFDF9;
+    --sage:#8FA48A;        /* verde sálvia (🍃 da bio) */
+    --sage-soft:#DCE5D6;
+    --sage-deep:#4F6650;
+    --nude:#D8B9A5;        /* nude rosado */
+    --nude-soft:#F2E3D8;
+    --gold:#B8996B;
+    --text:#36403A;
+    --muted:#6F7A72;
+    --line:#E3DACB;
+    --wa:#25D366;
+    --radius:22px;
+    --shadow:0 18px 40px -22px rgba(79,102,80,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;background:var(--bg)}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--text);background:var(--bg);line-height:1.65;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:'Cormorant Garamond',serif}
+  .wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+  section{padding:88px 0;position:relative}
+  .eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-deep);font-weight:500;display:inline-flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,5vw,3.1rem);line-height:1.1;margin:14px 0 18px;color:var(--text)}
+  h2 em{color:var(--sage-deep);font-style:italic}
+  .lead{color:var(--muted);max-width:620px}
+
+  /* progress */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--sage),var(--nude),var(--gold));z-index:200}
+
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s;background:rgba(247,243,236,.0)}
+  header.scrolled{background:rgba(247,243,236,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand svg{width:34px;height:34px;flex:none}
+  .brand b{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:1.65rem;line-height:1;display:block}
+  .brand small{display:block;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .menu{display:flex;gap:28px;font-size:.9rem}
+  .menu a{position:relative;color:var(--text)}
+  .menu a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--sage-deep);transition:.3s}
+  .menu a:hover::after{width:100%}
+  .nav-cta{font-size:.85rem;padding:10px 18px;border-radius:999px;background:var(--sage-deep);color:#fff;font-weight:400}
+  @media(max-width:860px){.menu{display:none}}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:400;font-size:.95rem;transition:.3s;cursor:pointer;border:0;font-family:inherit}
+  .btn svg{width:18px;height:18px}
+  .btn-main{background:var(--sage-deep);color:#fff;box-shadow:var(--shadow)}
+  .btn-main:hover{transform:translateY(-2px);background:#435843}
+  .btn-ghost{border:1px solid var(--sage-deep);color:var(--sage-deep);background:transparent}
+  .btn-ghost:hover{background:var(--sage-soft)}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 70px;background:
+     radial-gradient(60% 50% at 85% 20%, var(--nude-soft) 0%, transparent 70%),
+     radial-gradient(50% 45% at 10% 85%, var(--sage-soft) 0%, transparent 70%),var(--bg);overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(3.6rem,10vw,6.4rem);line-height:.95;color:var(--text)}
+  .hero h1 span{display:block;font-style:normal;font-size:.36em;letter-spacing:.32em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:400;color:var(--sage-deep);margin-top:16px}
+  .hero p.tag{font-size:1.15rem;margin:26px 0 34px;max-width:470px;color:var(--muted)}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+  .hero-stats{display:flex;gap:34px;margin-top:42px;padding-top:26px;border-top:1px solid var(--line)}
+  .hero-stats b{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:500;display:block;line-height:1;color:var(--sage-deep)}
+  .hero-stats small{font-size:.78rem;color:var(--muted);letter-spacing:.06em}
+  .hero-photo{position:relative;justify-self:center;width:min(400px,100%)}
+  .hero-photo .ph{aspect-ratio:4/5;border-radius:200px 200px 26px 26px}
+  .hero-photo .leaf{position:absolute;width:110px;right:-18px;bottom:40px;opacity:.9}
+  .badge{position:absolute;left:-16px;top:56px;background:var(--white);border-radius:18px;padding:12px 16px;box-shadow:var(--shadow);font-size:.82rem;display:flex;gap:10px;align-items:center}
+  .badge i{width:34px;height:34px;border-radius:50%;background:var(--sage-soft);display:grid;place-items:center;font-style:normal}
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:44px;text-align:center}
+    .hero p.tag{margin-inline:auto}
+    .hero-btns,.hero-stats{justify-content:center}
+    .hero-photo{width:min(300px,82%)}
+    .badge{left:-6px}
+    .hero-photo .leaf{right:-6px;width:80px}
+  }
+  /* hero entrance */
+  .h-in{opacity:0;transform:translateY(26px);animation:hin 1s cubic-bezier(.2,.7,.2,1) forwards}
+  .h-in.d1{animation-delay:.15s}.h-in.d2{animation-delay:.3s}.h-in.d3{animation-delay:.45s}.h-in.d4{animation-delay:.6s}.h-in.d5{animation-delay:.75s}
+  @keyframes hin{to{opacity:1;transform:none}}
+
+  /* placeholders */
+  .ph{position:relative;width:100%;background:repeating-linear-gradient(135deg,#EDE4D6 0 14px,#F5EFE5 14px 28px);border:1px dashed #CDBFA9;display:grid;place-items:center;overflow:hidden;color:#8E7F6A;font-size:.78rem;text-align:center;padding:14px;letter-spacing:.04em}
+  .ph span{background:rgba(255,253,249,.85);padding:6px 12px;border-radius:999px}
+  .todo{background:#FFF3CF;border:1px dashed #D8B65A;color:#7A6224;padding:2px 8px;border-radius:6px;font-size:.85em}
+
+  /* highlights */
+  .highlights{padding:46px 0 26px;background:var(--white);border-block:1px solid var(--line)}
+  .hl-list{display:flex;gap:22px;overflow-x:auto;padding:6px 4px 14px;scrollbar-width:none;justify-content:flex-start}
+  .hl-list::-webkit-scrollbar{display:none}
+  @media(min-width:1000px){.hl-list{justify-content:center;flex-wrap:wrap}}
+  .hl{flex:none;width:84px;text-align:center;font-size:.76rem;color:var(--text)}
+  .hl .ring{width:76px;height:76px;margin:0 auto 8px;border-radius:50%;padding:3px;background:conic-gradient(var(--sage),var(--nude),var(--gold),var(--sage));transition:.3s}
+  .hl .in{width:100%;height:100%;border-radius:50%;background:var(--bg);border:3px solid var(--white);display:grid;place-items:center}
+  .hl svg{width:30px;height:30px;stroke:var(--sage-deep);fill:none;stroke-width:1.4}
+  .hl:hover .ring{transform:scale(1.07) rotate(8deg)}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+  .about-photo .ph{aspect-ratio:4/5;border-radius:var(--radius)}
+  .about-photo{position:relative}
+  .about-photo::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);border-radius:var(--radius);z-index:-1}
+  .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;color:var(--sage-deep);border-left:2px solid var(--nude);padding-left:18px;margin:22px 0}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .pillar{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center;font-size:.85rem}
+  .pillar b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--sage-deep)}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:46px}.about-photo{width:min(360px,88%);margin-inline:auto}.pillars{grid-template-columns:1fr}}
+
+  /* services */
+  .services{background:var(--white)}
+  .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 34px}
+  .tab{padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:var(--bg);font-family:inherit;font-size:.9rem;color:var(--text);cursor:pointer;transition:.25s}
+  .tab.active{background:var(--sage-deep);color:#fff;border-color:var(--sage-deep)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:980px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.svc-grid{grid-template-columns:1fr}}
+  .svc{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:.35s;scroll-margin-top:100px}
+  .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow);background:var(--white)}
+  .svc.flash{box-shadow:0 0 0 2px var(--sage),var(--shadow)}
+  .svc-ic{width:52px;height:52px;border-radius:16px;background:var(--sage-soft);display:grid;place-items:center;margin-bottom:18px}
+  .svc-ic svg{width:26px;height:26px;stroke:var(--sage-deep);fill:none;stroke-width:1.4}
+  .svc h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.6rem;line-height:1.15}
+  .svc p{font-size:.93rem;color:var(--muted);margin:10px 0 16px;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+  .tags span{font-size:.72rem;padding:4px 10px;border-radius:999px;background:var(--nude-soft);color:#7D5E4B}
+  .svc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:16px}
+  .price{font-size:.8rem;color:var(--muted)}
+  .svc .btn{padding:10px 16px;font-size:.84rem}
+  .svc.hide{display:none}
+
+  /* before after */
+  .ba-main{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;margin-top:36px}
+  .compare{position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);--p:50%;user-select:none}
+  .compare .ph{position:absolute;inset:0;border:0;border-radius:0}
+  .compare .after{background:repeating-linear-gradient(135deg,#DCE5D6 0 14px,#EEF3EA 14px 28px)}
+  .compare .before{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+  .compare .bar{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
+  .compare .knob{position:absolute;top:50%;left:var(--p);width:46px;height:46px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.18);pointer-events:none;color:var(--sage-deep);font-size:1rem}
+  .compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+  .compare .lbl{position:absolute;bottom:14px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;background:rgba(255,253,249,.9);padding:5px 12px;border-radius:999px;pointer-events:none}
+  .lbl.l{left:14px}.lbl.r{right:14px}
+  .ba-pairs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .pair{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+  .pair .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .pair .ph{aspect-ratio:1;border-radius:14px;font-size:.7rem}
+  .pair h4{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.25rem;margin:12px 4px 2px}
+  .pair small{color:var(--muted);margin-left:4px;font-size:.8rem}
+  @media(max-width:860px){.ba-main{grid-template-columns:1fr}.ba-pairs{grid-template-columns:1fr}}
+
+  /* space */
+  .space{background:var(--bg-2)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;margin-top:34px}
+  .gallery .ph{border-radius:18px;height:100%}
+  .gallery .g1{grid-column:span 2;grid-row:span 2}
+  .gallery .g4{grid-column:span 2}
+  @media(max-width:760px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gallery .g1{grid-column:span 2}.gallery .g4{grid-column:span 2}}
+
+  /* testimonials */
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  .t-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:relative}
+  .t-card::before{content:"“";position:absolute;top:2px;right:20px;font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--nude);line-height:1}
+  .stars{color:var(--gold);letter-spacing:3px;margin-bottom:12px}
+  .t-card p{font-style:italic;color:var(--muted);font-size:.95rem}
+  .t-card b{display:block;margin-top:16px;font-weight:500;font-size:.9rem}
+  @media(max-width:860px){.t-grid{grid-template-columns:1fr}}
+
+  /* bem-estar band */
+  .band{background:linear-gradient(135deg,var(--sage-soft),var(--nude-soft));border-radius:32px;padding:56px 40px;text-align:center;position:relative;overflow:hidden}
+  .band h2{margin-top:10px}
+  .band p{max-width:560px;margin:0 auto 28px;color:var(--muted)}
+  .band svg.deco{position:absolute;width:160px;opacity:.35}
+  @media(max-width:600px){.band{padding:46px 22px}}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px;align-items:start}
+  .c-list{display:grid;gap:14px}
+  .c-item{display:flex;gap:16px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+  .c-item i{flex:none;width:44px;height:44px;border-radius:14px;background:var(--sage-soft);display:grid;place-items:center}
+  .c-item i svg{width:22px;height:22px;stroke:var(--sage-deep);fill:none;stroke-width:1.5}
+  .c-item small{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .c-item a,.c-item span{font-weight:400}
+  .c-card{background:var(--sage-deep);color:#fff;border-radius:28px;padding:40px 34px;position:relative;overflow:hidden}
+  .c-card h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:2.3rem;line-height:1.1}
+  .c-card p{opacity:.85;margin:14px 0 26px}
+  .c-card .btn{background:#fff;color:var(--sage-deep);width:100%}
+  .c-card .btn + .btn{margin-top:12px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6)}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+
+  footer{padding:40px 0 100px;text-align:center;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line)}
+  footer .brand{justify-content:center;margin-bottom:12px}
+
+  /* floating wa */
+  .wa-float{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.45);z-index:150;animation:pulse 2.6s infinite}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+  @keyframes pulse{0%,100%{box-shadow:0 10px 26px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 10px 26px rgba(37,211,102,.45),0 0 0 14px rgba(37,211,102,0)}}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- símbolo (folha – 🍃 da bio) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="leaf" viewBox="0 0 48 48"><path d="M10 38C10 20 22 9 40 8c0 19-11 30-28 30" fill="#DCE5D6" stroke="#4F6650" stroke-width="1.6"/><path d="M10 38C18 28 26 21 34 15" fill="none" stroke="#4F6650" stroke-width="1.4" stroke-linecap="round"/><path d="M19 28l-1-7M25 22l-1-6M23 31l7-1M29 25l6-1" stroke="#B8996B" stroke-width="1.1" stroke-linecap="round"/></symbol>
+    <symbol id="wa" viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1s-.5-.2-.7.2-.8 1-1 1.1-.4.2-.7 0a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.3 14.3 0 0 0 5.5 4.9c2 .9 2.8.9 3.9.8a3.3 3.3 0 0 0 2.1-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.4z"/></symbol>
+  </defs>
+</svg>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#inicio" class="brand"><svg><use href="#leaf"/></svg><div><b>Rosilene</b><small>Estética & Saúde</small></div></a>
+    <nav class="menu">
+      <a href="#sobre">Sobre</a><a href="#servicos">Tratamentos</a><a href="#resultados">Resultados</a><a href="#espaco">Espaço</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="nav-cta js-wa" data-msg="Olá, Rosilene! Vim pelo site e gostaria de agendar um horário." href="#">Agendar</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow h-in">Estética Facial e Corporal</div>
+      <h1 class="h-in d1" style="margin-top:18px">Rosilene<span>Estética & Saúde</span></h1>
+      <p class="tag h-in d2">Cuidar da sua pele e do seu corpo é também cuidar da sua saúde. Tratamentos faciais, corporais e terapias que promovem bem-estar de dentro para fora.</p>
+      <div class="hero-btns h-in d3">
+        <a class="btn btn-main js-wa" data-msg="Olá, Rosilene! Vim pelo site e gostaria de agendar uma avaliação." href="#"><svg><use href="#wa" fill="#fff"/></svg>Agendar pelo WhatsApp</a>
+        <a class="btn btn-ghost js-maps" href="#" target="_blank" rel="noopener">Ver localização</a>
+      </div>
+      <div class="hero-stats h-in d4">
+        <div><b>10</b><small>tratamentos</small></div>
+        <div><b>+3,8 mil</b><small>seguidoras no Instagram</small></div>
+        <div><b>+260</b><small>publicações</small></div>
+      </div>
+    </div>
+    <div class="hero-photo h-in d5">
+      <div class="ph"><span>foto-rosilene-hero.jpg<br>(retrato dela de jaleco/blusa branca)</span></div>
+      <div class="badge"><i>🍃</i><div><b style="font-weight:500">Saúde & bem-estar</b><br><small style="color:var(--muted)">em cada atendimento</small></div></div>
+      <svg class="leaf"><use href="#leaf"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- DESTAQUES (iguais aos do Instagram) -->
+<div class="highlights">
+  <div class="wrap">
+    <div class="hl-list">
+      <a class="hl reveal" href="#s-harmonizacao"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><path d="M16 4c-6 0-9 5-9 11s4 13 9 13 9-7 9-13-3-11-9-11z"/><path d="M12 14h.1M20 14h.1M13 21c2 1.5 4 1.5 6 0"/></svg></div></div>Harmonização</a>
+      <a class="hl reveal" href="#s-co2"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><path d="M16 3v8M16 21v8M3 16h8M21 16h8M7 7l5 5M20 20l5 5M25 7l-5 5M12 20l-5 5"/></svg></div></div>Laser CO2</a>
+      <a class="hl reveal" href="#s-creamy"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><rect x="9" y="11" width="14" height="17" rx="3"/><path d="M12 11V7h8v4M9 18h14"/></svg></div></div>Creamy</a>
+      <a class="hl reveal" href="#s-lavieen"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="6"/><path d="M16 3v4M16 25v4M3 16h4M25 16h4"/></svg></div></div>Lavieen</a>
+      <a class="hl reveal" href="#s-psicanalise"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><path d="M11 27v-5c-3-2-5-5-5-9a10 10 0 0 1 20 0c0 3-1 5-2 6v8"/><path d="M14 12c0-2 4-2 4 0s-2 2-2 4"/></svg></div></div>Psicanálise</a>
+      <a class="hl reveal" href="#s-crio"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><path d="M16 3v26M5 9l22 14M27 9 5 23M12 5l4 3 4-3M12 27l4-3 4 3"/></svg></div></div>Criolipólise</a>
+      <a class="hl reveal" href="#s-endolaser"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><path d="M5 27 22 10M22 10l5-5M18 6l8 8"/><circle cx="9" cy="23" r="2"/></svg></div></div>Endolaser</a>
+      <a class="hl reveal" href="#s-depilacao"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><path d="M8 26c3-6 5-12 4-20M15 26c2-6 3-11 2-18M22 26c2-5 3-9 2-14"/></svg></div></div>Depilação Laser</a>
+      <a class="hl reveal" href="#s-oleos"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><path d="M13 4h6v5l3 4v13a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V13l3-4z"/><path d="M16 17c-2 2-2 4 0 5 2-1 2-3 0-5z"/></svg></div></div>Óleos Essenciais</a>
+      <a class="hl reveal" href="#s-ozonio"><div class="ring"><div class="in"><svg viewBox="0 0 32 32"><circle cx="11" cy="18" r="5"/><circle cx="21" cy="18" r="5"/><circle cx="16" cy="10" r="5"/></svg></div></div>Ozonioterapia</a>
+    </div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal"><div class="ph"><span>foto-rosilene-atendendo.jpg</span></div></div>
+    <div>
+      <div class="eyebrow reveal">Quem sou eu</div>
+      <h2 class="reveal">Muito prazer, eu sou a <em>Rosilene</em></h2>
+      <p class="lead reveal">Sou esteticista e atuo com <b style="font-weight:500">estética facial e corporal</b>, unindo tecnologias como Laser CO2, Lavieen, Endolaser e Criolipólise a terapias integrativas como Ozonioterapia, Óleos Essenciais e Psicanálise.</p>
+      <p class="quote reveal">“Promovo saúde e bem-estar.”</p>
+      <p class="lead reveal"><span class="todo">ESPAÇO RESERVADO: formação, anos de experiência e história da Rosilene (pedir para ela)</span></p>
+      <div class="pillars">
+        <div class="pillar reveal"><b>Facial</b>rejuvenescimento e textura da pele</div>
+        <div class="pillar reveal"><b>Corporal</b>contorno, gordura localizada e depilação</div>
+        <div class="pillar reveal"><b>Bem-estar</b>terapias integrativas e saúde emocional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="eyebrow reveal">Tratamentos</div>
+    <h2 class="reveal">Cuidado completo, <em>do rosto ao bem-estar</em></h2>
+    <p class="lead reveal">Cada protocolo começa com uma avaliação para entender a sua pele, o seu corpo e o seu momento.</p>
+    <div class="tabs reveal">
+      <button class="tab active" data-f="all">Todos</button>
+      <button class="tab" data-f="facial">Facial</button>
+      <button class="tab" data-f="corporal">Corporal</button>
+      <button class="tab" data-f="bem">Saúde & bem-estar</button>
+    </div>
+    <div class="svc-grid" id="svcGrid"></div>
+  </div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section id="resultados">
+  <div class="wrap">
+    <div class="eyebrow reveal">Resultados</div>
+    <h2 class="reveal">Antes <em>&</em> depois</h2>
+    <div class="ba-main">
+      <div class="compare reveal" id="compare">
+        <div class="ph after"><span>laser-co2-depois.jpg</span></div>
+        <div class="ph before"><span>laser-co2-antes.jpg</span></div>
+        <div class="bar"></div><div class="knob">⟷</div>
+        <span class="lbl l">Antes</span><span class="lbl r">Depois</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+      </div>
+      <div>
+        <h3 class="serif reveal" style="font-size:2rem;font-weight:500;line-height:1.1">Laser CO2 fracionado</h3>
+        <p class="lead reveal" style="margin:14px 0 24px">Arraste a barra para comparar. Renovação da textura, das manchas e das linhas finas — resultado varia de pessoa para pessoa.</p>
+        <a class="btn btn-main reveal js-wa" data-msg="Olá, Rosilene! Vi os resultados do Laser CO2 no site e tenho interesse." href="#"><svg><use href="#wa" fill="#fff"/></svg>Quero esse resultado</a>
+      </div>
+    </div>
+    <div class="ba-pairs">
+      <div class="pair reveal"><div class="two"><div class="ph"><span>lavieen-antes</span></div><div class="ph"><span>lavieen-depois</span></div></div><h4>Lavieen</h4><small>uniformização e viço</small></div>
+      <div class="pair reveal"><div class="two"><div class="ph"><span>endolaser-antes</span></div><div class="ph"><span>endolaser-depois</span></div></div><h4>Endolaser</h4><small>contorno e firmeza</small></div>
+      <div class="pair reveal"><div class="two"><div class="ph"><span>harmonizacao-antes</span></div><div class="ph"><span>harmonizacao-depois</span></div></div><h4>Harmonização</h4><small>equilíbrio e naturalidade</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEM-ESTAR -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="band reveal">
+      <svg class="deco" style="left:-30px;top:-20px"><use href="#leaf"/></svg>
+      <svg class="deco" style="right:-30px;bottom:-30px;transform:rotate(160deg)"><use href="#leaf"/></svg>
+      <div class="eyebrow" style="justify-content:center">Saúde & bem-estar</div>
+      <h2>Beleza que começa <em>por dentro</em></h2>
+      <p>Além da estética, Rosilene oferece Ozonioterapia, Óleos Essenciais e Psicanálise — porque autoestima também é saúde emocional.</p>
+      <a class="btn btn-main js-wa" data-msg="Olá, Rosilene! Gostaria de saber mais sobre as terapias de bem-estar." href="#"><svg><use href="#wa" fill="#fff"/></svg>Conversar com a Rosilene</a>
+    </div>
+  </div>
+</section>
+
+<!-- ESPAÇO -->
+<section class="space" id="espaco">
+  <div class="wrap">
+    <div class="eyebrow reveal">Nosso espaço</div>
+    <h2 class="reveal">Um lugar pensado <em>para você</em></h2>
+    <div class="gallery">
+      <div class="ph g1 reveal"><span>espaco-recepcao.jpg</span></div>
+      <div class="ph reveal"><span>sala-atendimento.jpg</span></div>
+      <div class="ph reveal"><span>equipamento-laser.jpg</span></div>
+      <div class="ph g4 reveal"><span>detalhes-decoracao.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="wrap">
+    <div class="eyebrow reveal">Feedbacks</div>
+    <h2 class="reveal">O que dizem <em>as clientes</em></h2>
+    <div class="t-grid">
+      <div class="t-card reveal"><div class="stars">★★★★★</div><p><span class="todo">ESPAÇO RESERVADO: feedback real de cliente (print do WhatsApp/Instagram)</span></p><b>Nome da cliente</b></div>
+      <div class="t-card reveal"><div class="stars">★★★★★</div><p><span class="todo">ESPAÇO RESERVADO: feedback real de cliente</span></p><b>Nome da cliente</b></div>
+      <div class="t-card reveal"><div class="stars">★★★★★</div><p><span class="todo">ESPAÇO RESERVADO: feedback real de cliente</span></p><b>Nome da cliente</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" style="background:var(--white)">
+  <div class="wrap">
+    <div class="eyebrow reveal">Contato</div>
+    <h2 class="reveal">Vamos agendar <em>o seu momento?</em></h2>
+    <div class="contact-grid">
+      <div class="c-list">
+        <div class="c-item reveal"><i><svg viewBox="0 0 24 24"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></i><div><small>Endereço</small><span class="todo">ESPAÇO RESERVADO: endereço completo (a bio cita "R. Set…")</span><br><a class="js-maps" href="#" target="_blank" rel="noopener" style="color:var(--sage-deep);font-size:.88rem">Abrir no Google Maps →</a></div></div>
+        <div class="c-item reveal"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><div><small>Horário</small><span class="todo">ESPAÇO RESERVADO: dias e horários de atendimento</span></div></div>
+        <div class="c-item reveal"><i><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><div><small>WhatsApp</small><a class="js-wa" data-msg="Olá, Rosilene! Vim pelo site." href="#">(27) 99925-1516</a></div></div>
+        <div class="c-item reveal"><i><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></i><div><small>Instagram</small><a href="https://www.instagram.com/rosileneesteticista/" target="_blank" rel="noopener">@rosileneesteticista</a></div></div>
+      </div>
+      <div class="c-card reveal">
+        <h3>Sua pele, seu corpo, seu bem-estar.</h3>
+        <p>Chame no WhatsApp e agende sua avaliação. Valores e pacotes são informados no atendimento.</p>
+        <a class="btn js-wa" data-msg="Olá, Rosilene! Vim pelo site e gostaria de agendar uma avaliação." href="#"><svg><use href="#wa" fill="#25D366"/></svg>Agendar pelo WhatsApp</a>
+        <a class="btn js-maps" href="#" target="_blank" rel="noopener">Ver localização</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand"><svg width="30" height="30"><use href="#leaf"/></svg><div style="text-align:left"><b>Rosilene</b><small>Estética & Saúde</small></div></div>
+  <p>© <span id="yr"></span> Rosilene Estética & Saúde · Estética Facial e Corporal</p>
+  <p style="margin-top:6px;font-size:.78rem">Site por <a href="https://www.instagram.com/maggon.co/" target="_blank" rel="noopener" style="color:var(--sage-deep)">Maggon</a></p>
+</footer>
+
+<a class="wa-float js-wa" data-msg="Olá, Rosilene! Vim pelo site e gostaria de mais informações." href="#" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><use href="#wa"/></svg></a>
+
+<script>
+  const PHONE = "5527999251516";
+  // TODO: trocar pelo endereço completo quando a Rosilene enviar
+  const MAPS  = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Rosilene Estética e Saúde");
+
+  const wa = msg => `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+
+  const ICON = {
+    face:'<path d="M16 4c-6 0-9 5-9 11s4 13 9 13 9-7 9-13-3-11-9-11z"/><path d="M12 14h.1M20 14h.1M13 21c2 1.5 4 1.5 6 0"/>',
+    laser:'<path d="M16 3v8M16 21v8M3 16h8M21 16h8M7 7l5 5M20 20l5 5M25 7l-5 5M12 20l-5 5"/>',
+    jar:'<rect x="9" y="11" width="14" height="17" rx="3"/><path d="M12 11V7h8v4M9 18h14"/>',
+    sun:'<circle cx="16" cy="16" r="6"/><path d="M16 3v4M16 25v4M3 16h4M25 16h4"/>',
+    mind:'<path d="M11 27v-5c-3-2-5-5-5-9a10 10 0 0 1 20 0c0 3-1 5-2 6v8"/><path d="M14 12c0-2 4-2 4 0s-2 2-2 4"/>',
+    snow:'<path d="M16 3v26M5 9l22 14M27 9 5 23M12 5l4 3 4-3M12 27l4-3 4 3"/>',
+    fiber:'<path d="M5 27 22 10M22 10l5-5M18 6l8 8"/><circle cx="9" cy="23" r="2"/>',
+    hair:'<path d="M8 26c3-6 5-12 4-20M15 26c2-6 3-11 2-18M22 26c2-5 3-9 2-14"/>',
+    oil:'<path d="M13 4h6v5l3 4v13a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V13l3-4z"/><path d="M16 17c-2 2-2 4 0 5 2-1 2-3 0-5z"/>',
+    o3:'<circle cx="11" cy="18" r="5"/><circle cx="21" cy="18" r="5"/><circle cx="16" cy="10" r="5"/>'
+  };
+
+  // Preços não informados no Instagram → "Valores pelo WhatsApp"
+  const SERVICOS = [
+    {id:'s-harmonizacao',cat:'facial',ic:'face',nome:'Harmonização',desc:'Realça os traços do rosto com equilíbrio e naturalidade, respeitando a sua beleza.',tags:['Facial','Naturalidade']},
+    {id:'s-co2',cat:'facial',ic:'laser',nome:'Laser CO2',desc:'Laser fracionado que estimula a renovação da pele: textura, manchas, linhas finas e marcas.',tags:['Rejuvenescimento','Textura','Manchas']},
+    {id:'s-lavieen',cat:'facial',ic:'sun',nome:'Lavieen',desc:'Laser para uniformizar o tom, dar viço e melhorar a aparência dos poros, com recuperação rápida.',tags:['Viço','Tom uniforme']},
+    {id:'s-creamy',cat:'facial',ic:'jar',nome:'Creamy',desc:'Protocolo facial Creamy. <span class="todo">confirmar descrição com a Rosilene</span>',tags:['Facial']},
+    {id:'s-crio',cat:'corporal',ic:'snow',nome:'Criolipólise',desc:'Tecnologia de resfriamento que atua na gordura localizada, sem cortes.',tags:['Gordura localizada','Sem cortes']},
+    {id:'s-endolaser',cat:'corporal',ic:'fiber',nome:'Endolaser',desc:'Laser aplicado por fibra para tratar flacidez e gordura localizada e definir contornos.',tags:['Contorno','Firmeza']},
+    {id:'s-depilacao',cat:'corporal',ic:'hair',nome:'Depilação a Laser',desc:'Redução dos pelos com mais praticidade no dia a dia e menos irritação na pele.',tags:['Praticidade','Corpo e rosto']},
+    {id:'s-ozonio',cat:'bem',ic:'o3',nome:'Ozonioterapia',desc:'Terapia integrativa com ozônio, usada na estética e como apoio ao bem-estar.',tags:['Integrativa','Bem-estar']},
+    {id:'s-oleos',cat:'bem',ic:'oil',nome:'Óleos Essenciais',desc:'Aromaterapia com óleos essenciais para relaxamento, equilíbrio e autocuidado.',tags:['Aromaterapia','Relaxamento']},
+    {id:'s-psicanalise',cat:'bem',ic:'mind',nome:'Psicanálise',desc:'Escuta e acolhimento para cuidar da saúde emocional — autoestima também é saúde.',tags:['Saúde emocional','Acolhimento']}
+  ];
+
+  const grid = document.getElementById('svcGrid');
+  grid.innerHTML = SERVICOS.map(s => `
+    <article class="svc reveal" id="${s.id}" data-cat="${s.cat}">
+      <div class="svc-ic"><svg viewBox="0 0 32 32">${ICON[s.ic]}</svg></div>
+      <h3>${s.nome}</h3>
+      <p>${s.desc}</p>
+      <div class="tags">${s.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+      <div class="svc-foot">
+        <span class="price">Valores pelo WhatsApp</span>
+        <a class="btn btn-main" target="_blank" rel="noopener" href="${wa(`Olá, Rosilene! Vim pelo site e tenho interesse em ${s.nome}. Pode me passar mais informações?`)}">Tenho interesse</a>
+      </div>
+    </article>`).join('');
+
+  document.querySelectorAll('.js-wa').forEach(a => { a.href = wa(a.dataset.msg || 'Olá, Rosilene!'); a.target = '_blank'; a.rel = 'noopener'; });
+  document.querySelectorAll('.js-maps').forEach(a => a.href = MAPS);
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // filtros
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    const f = t.dataset.f;
+    document.querySelectorAll('.svc').forEach(c => {
+      const on = f === 'all' || c.dataset.cat === f;
+      c.classList.toggle('hide', !on);
+      if (on) c.classList.add('show');
+    });
+  }));
+
+  // destaques → mostram o serviço
+  document.querySelectorAll('.hl').forEach(h => h.addEventListener('click', e => {
+    const card = document.querySelector(h.getAttribute('href'));
+    document.querySelector('.tab[data-f="all"]').click();
+    e.preventDefault();
+    card.scrollIntoView({behavior:'smooth', block:'center'});
+    card.classList.add('show','flash');
+    setTimeout(() => card.classList.remove('flash'), 1800);
+  }));
+
+  // comparador
+  const cmp = document.getElementById('compare');
+  cmp.querySelector('input').addEventListener('input', e => cmp.style.setProperty('--p', e.target.value + '%'));
+
+  // header + progresso
+  const header = document.querySelector('header'), bar = document.getElementById('progress');
+  const onScroll = () => {
+    header.classList.toggle('scrolled', scrollY > 30);
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // cascata ao rolar
+  const io = new IntersectionObserver(entries => {
+    const vis = entries.filter(e => e.isIntersecting).map(e => e.target);
+    vis.sort((a,b) => { const ra=a.getBoundingClientRect(), rb=b.getBoundingClientRect(); return (ra.top-rb.top) || (ra.left-rb.left); });
+    vis.forEach((el,i) => { el.style.transitionDelay = (i*0.12)+'s'; el.classList.add('show'); io.unobserve(el); });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal:not(.hl)').forEach(el => io.observe(el));
+
+  // destaques: a faixa rola na horizontal no celular, então entram todos juntos em cascata
+  const hlList = document.querySelector('.hl-list');
+  new IntersectionObserver((en, obs) => {
+    if (!en[0].isIntersecting) return;
+    hlList.querySelectorAll('.hl').forEach((el,i) => { el.style.transitionDelay = (i*0.08)+'s'; el.classList.add('show'); });
+    obs.disconnect();
+  }, {threshold:.2}).observe(hlList);
+</script>
+</body>
+</html>
